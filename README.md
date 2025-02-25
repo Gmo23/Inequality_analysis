@@ -27,36 +27,39 @@ A non-economic metric
 After refining the initial dataset to leave only European countries as desired, checks for missing values were done revealing none. Therefore, the dataset was ready for initial exploration. As expected in the hypothesis, plots revealed a negative relationship between Gini value and all the  three of the four above-mentioned factors, however, they were weak. Income per person and tax as a percentage of GDP had correlation coefficients of -0.2061 and -0.2358 respectively, revealing a very weak relationship with the Gini index value. Interestingly the most significant factor amongst those chosen appeared to be the EIU democracy index, with coefficient -0.3416, also however a weak relationship. Moreover, it is clear to see from the plot between inequality and investment as a percentage of GDP, where the data is sparsely distributed and a linear relationship cannot be discerned, that there seems to be no correlation between the two, a correlation coefficient of -0.05 adds further evidence to this. 
 
 
-![A graph of a graph showing a map of the united states
+<table>
+  <tr>
+    <td><img src="README_files/Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.001.png" width="100%"></td>
+    <td><img src="README_files/Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.002.png" width="100%"></td>
+  </tr>
+  <tr>
+    <td><img src="README_files/Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.003.png" width="100%"></td>
+    <td><img src="README_files/Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.004.png" width="100%"></td>
+  </tr>
+</table>
 
-Description automatically generated](Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.001.png)![A graph with black dots
-
-Description automatically generated](Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.002.png)![A graph showing a number of people
-
-Description automatically generated](Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.003.png)![A graph of a political plot
-
-Description automatically generated with medium confidence](Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.004.png)
 
 **3  Multivariate Linear Regression** 
 
 **3.1 Assumptions check** 
 
-![A diagram of a number of dots
 
-Description automatically generated](Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.005.png)![A graph of a number of individuals
+<img src="README_files/Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.005.png" width="45%">
 
-Description automatically generated](Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.006.png)![A graph of a normal q-q plot
+<img src="README_files/Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.006.png" width="45%">
 
-Description automatically generated](Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.007.png)Nevertheless, we will proceed with the multivariate linear regression to discern the relationship between the level of inequality in a European country for a certain year and the respective values of all four of the above-mentioned metrics (explanatory variables). Before discussing the results of the regression, we must verify that our assumptions for a linear model are met, namely normality and homoscedasticity of the residuals. A QQ-plot showed the data fitting the diagonal line well and the histogram also suggested normality, with a successful Shapiro-Wilk test further supporting this claim. However, the plot of residual values against fitted values suggests that the variance of the residuals may not be constant, and a Breusch-Pagan test gives a p-value below 0.05 significance level of 2.2x10<sup>-16</sup> meaning that there is statistically significant evidence to reject the assumption that the residuals are homoscedastic. Given the size of the dataset (426 data points) and potential interaction effects this is perhaps not completely unsurprising however it is certainly a significant limitation of this model and must be considered in our conclusions. Moreover, this hints that the model may be suffering from overfitting.
+<img src="README_files/Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.007.png" width="45%">
+
+
+Nevertheless, we will proceed with the multivariate linear regression to discern the relationship between the level of inequality in a European country for a certain year and the respective values of all four of the above-mentioned metrics (explanatory variables). Before discussing the results of the regression, we must verify that our assumptions for a linear model are met, namely normality and homoscedasticity of the residuals. A QQ-plot showed the data fitting the diagonal line well and the histogram also suggested normality, with a successful Shapiro-Wilk test further supporting this claim. However, the plot of residual values against fitted values suggests that the variance of the residuals may not be constant, and a Breusch-Pagan test gives a p-value below 0.05 significance level of 2.2x10<sup>-16</sup> meaning that there is statistically significant evidence to reject the assumption that the residuals are homoscedastic. Given the size of the dataset (426 data points) and potential interaction effects this is perhaps not completely unsurprising however it is certainly a significant limitation of this model and must be considered in our conclusions. Moreover, this hints that the model may be suffering from overfitting.
 
 **3.2 Model Analysis** 
 
 Now onto interpreting the results of the regression itself. Given the size of the model we begin by considering the adjusted R-squared value which is very low. Indeed, the model conveys that only 16% of the variance of the Gini coefficient is explained by the factors highlighted in this project. Evidence of either a weak relationship or no linear relationship at all. However, more positively the small difference (0.008) between the R-squared and adjusted R-squared which penalises larger models suggests that the model is in fact not suffering from overfitting. In addition, we see that all of the explanatory variables were statistically significant (at level 0.05) the exception being income per person (GDP per capita). The p-value due to the F-statistic also conveyed that the model had some relevance even if it is weak, with a value of 4.094x10<sup>-16</sup>.
 
-![A screenshot of a computer
 
-Description automatically generated](Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.008.png)
 
+<img src="README_files/Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.008.png" width="45%">
 
 
 
@@ -74,11 +77,10 @@ This project focused on European countries to investigate inequality. This was d
 
 Therefore, an asymptotic t-test should be employed – as both samples are sufficiently large, 808 and 426 data points, the test statistic can be well-approximated by a normal distribution. 
 
-![A graph of a normal q-q plot
 
-Description automatically generated](Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.009.png)![A graph of a normal q-q plot
+<img src="README_files/Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.009.png" width="45%">
 
-Description automatically generated](Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.010.png)
+<img src="README_files/Aspose.Words.4fe3c2f4-e83f-4573-af6d-76ee9d0c6b43.010.png" width="45%">
 
 
 
